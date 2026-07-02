@@ -1,701 +1,95 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rapport Fruit et légumes S27</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 30px 20px;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1800px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            color: white;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.2em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .date-info {
-            color: white;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.3em;
-            font-weight: 600;
-            background: rgba(0,0,0,0.1);
-            padding: 15px;
-            border-radius: 8px;
-        }
-        
-        .fournisseurs-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .fournisseur-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .fournisseur-card:hover {
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        
-        .fournisseur-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .fournisseur-nom {
-            font-size: 1.6em;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-        
-        .fournisseur-stats {
-            display: flex;
-            justify-content: space-around;
-            font-size: 0.9em;
-            opacity: 0.9;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-weight: bold;
-            font-size: 1.25em;
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 0.85em;
-            margin-top: 3px;
-        }
-        
-        .fournisseur-body {
-            padding: 15px;
-            flex: 1;
-            overflow-y: auto;
-            max-height: 700px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85em;
-        }
-        
-        th {
-            background: #f5f5f5;
-            padding: 8px 4px;
-            text-align: left;
-            font-weight: 600;
-            border-bottom: 2px solid #667eea;
-            position: sticky;
-            top: 0;
-            font-size: 0.8em;
-        }
-        
-        td {
-            padding: 8px 4px;
-            border-bottom: 1px solid #eee;
-            font-size: 0.85em;
-        }
-        
-        tr:hover {
-            background: #f9f9f9;
-        }
-        
-        .rank {
-            text-align: center;
-            font-weight: bold;
-            color: #667eea;
-            width: 25px;
-        }
-        
-        .article-name {
-            font-weight: 500;
-            color: #333;
-        }
-        
-        .qty {
-            text-align: right;
-            color: #666;
-        }
-        
-        .prix {
-            text-align: right;
-            color: #666;
-        }
-        
-        .ca {
-            text-align: right;
-            font-weight: 600;
-            color: #667eea;
-        }
-        
-        .total-row {
-            background: #f0f0f0;
-            font-weight: bold;
-            border-top: 2px solid #667eea;
-        }
-        
-        .total-row td {
-            border-bottom: none;
-            padding: 8px 4px;
-        }
-        
-        .fournisseur-body::-webkit-scrollbar {
-            width: 6px;
-        }
-        
-        .fournisseur-body::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        .fournisseur-body::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 10px;
-        }
-        
-        @media (max-width: 1200px) {
-            .fournisseurs-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .fournisseurs-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🥬 Conseil d'Achats des fruits et légumes pour cette semaine</h1>
-        <div class="date-info">(Mardi 30 juin - Lundi 6 juillet 2026)</div>
-        
-        <div class="fournisseurs-grid">
-
-            <div class="fournisseur-card">
-                <div class="fournisseur-header">
-                    <div class="fournisseur-nom">BARBIE</div>
-                    <div class="fournisseur-stats">
-                        <div class="stat">
-                            <span class="stat-value">Top 10</span>
-                            <div class="stat-label">Articles</div>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">2856€</span>
-                            <div class="stat-label">Top 10 CA</div>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">86%</span>
-                            <div class="stat-label">du CA</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="fournisseur-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 20px;">#</th>
-                                <th>Article</th>
-                                <th class="qty">Qty</th>
-                                <th class="prix">P.U.</th>
-                                <th class="ca">CA</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td class="rank">1</td>
-                                <td class="article-name">MELON 12 C EXTRA FR</td>
-                                <td class="qty">328.1</td>
-                                <td class="prix">3.80€</td>
-                                <td class="ca">1247€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">2</td>
-                                <td class="article-name">MANGUE AVION MOYENNE KILOS</td>
-                                <td class="qty">50.2</td>
-                                <td class="prix">6.80€</td>
-                                <td class="ca">341€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">3</td>
-                                <td class="article-name">PDT AMANDINE SAC 10KG</td>
-                                <td class="qty">180.0</td>
-                                <td class="prix">1.79€</td>
-                                <td class="ca">322€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">4</td>
-                                <td class="article-name">CAROTTE</td>
-                                <td class="qty">157.1</td>
-                                <td class="prix">1.30€</td>
-                                <td class="ca">204€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">5</td>
-                                <td class="article-name">PDT GT FRITABLE AGRIA +60 25KG</td>
-                                <td class="qty">160.0</td>
-                                <td class="prix">0.99€</td>
-                                <td class="ca">158€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">6</td>
-                                <td class="article-name">TOMATE 3 VRAC</td>
-                                <td class="qty">65.0</td>
-                                <td class="prix">2.35€</td>
-                                <td class="ca">153€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">7</td>
-                                <td class="article-name">PDT CRU EPLUCHEE 4EME GAMME</td>
-                                <td class="qty">100.0</td>
-                                <td class="prix">1.29€</td>
-                                <td class="ca">129€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">8</td>
-                                <td class="article-name">TOMATE CERISE* BARQUETTE *</td>
-                                <td class="qty">77.0</td>
-                                <td class="prix">1.65€</td>
-                                <td class="ca">127€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">9</td>
-                                <td class="article-name">KIWI 33 PCE</td>
-                                <td class="qty">236.0</td>
-                                <td class="prix">0.50€</td>
-                                <td class="ca">118€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">10</td>
-                                <td class="article-name">T.CERISE"MELI-MELO" COLIS VRAC</td>
-                                <td class="qty">8.1</td>
-                                <td class="prix">6.95€</td>
-                                <td class="ca">57€</td>
-                            </tr>
-
-                            <tr class="total-row">
-                                <td colspan="3">TOTAL TOP 10</td>
-                                <td></td>
-                                <td class="ca">2856€</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="fournisseur-card">
-                <div class="fournisseur-header">
-                    <div class="fournisseur-nom">COTE FRAIS</div>
-                    <div class="fournisseur-stats">
-                        <div class="stat">
-                            <span class="stat-value">Top 10</span>
-                            <div class="stat-label">Articles</div>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">2567€</span>
-                            <div class="stat-label">Top 10 CA</div>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">79%</span>
-                            <div class="stat-label">du CA</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="fournisseur-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 20px;">#</th>
-                                <th>Article</th>
-                                <th class="qty">Qty</th>
-                                <th class="prix">P.U.</th>
-                                <th class="ca">CA</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td class="rank">1</td>
-                                <td class="article-name">AUBERGINE</td>
-                                <td class="qty">311.9</td>
-                                <td class="prix">2.45€</td>
-                                <td class="ca">764€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">2</td>
-                                <td class="article-name">PASTEQUE FASHION S/PEPIN KG</td>
-                                <td class="qty">204.2</td>
-                                <td class="prix">1.95€</td>
-                                <td class="ca">398€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">3</td>
-                                <td class="article-name">MELANGE MULTIFEUILLE VRAC</td>
-                                <td class="qty">53.0</td>
-                                <td class="prix">6.95€</td>
-                                <td class="ca">368€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">4</td>
-                                <td class="article-name">HARICOT VERT EQUEUTE GROSSE BQ 500GR</td>
-                                <td class="qty">58.0</td>
-                                <td class="prix">4.95€</td>
-                                <td class="ca">287€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">5</td>
-                                <td class="article-name">CIBOULETTE BOTTE</td>
-                                <td class="qty">296.0</td>
-                                <td class="prix">0.65€</td>
-                                <td class="ca">192€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">6</td>
-                                <td class="article-name">POIVRON VERT KG</td>
-                                <td class="qty">53.0</td>
-                                <td class="prix">2.95€</td>
-                                <td class="ca">156€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">7</td>
-                                <td class="article-name">AVOCAT 14 C</td>
-                                <td class="qty">75.0</td>
-                                <td class="prix">1.48€</td>
-                                <td class="ca">111€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">8</td>
-                                <td class="article-name">CHOU KALE</td>
-                                <td class="qty">12.0</td>
-                                <td class="prix">8.85€</td>
-                                <td class="ca">106€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">9</td>
-                                <td class="article-name">PDT GRENAILLE* SAC 10 KG *</td>
-                                <td class="qty">50.0</td>
-                                <td class="prix">1.95€</td>
-                                <td class="ca">98€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">10</td>
-                                <td class="article-name">ECHALOTE CUISSE DE POULET KG</td>
-                                <td class="qty">35.0</td>
-                                <td class="prix">2.45€</td>
-                                <td class="ca">86€</td>
-                            </tr>
-
-                            <tr class="total-row">
-                                <td colspan="3">TOTAL TOP 10</td>
-                                <td></td>
-                                <td class="ca">2567€</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="fournisseur-card">
-                <div class="fournisseur-header">
-                    <div class="fournisseur-nom">FRESSENON</div>
-                    <div class="fournisseur-stats">
-                        <div class="stat">
-                            <span class="stat-value">Top 10</span>
-                            <div class="stat-label">Articles</div>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">4017€</span>
-                            <div class="stat-label">Top 10 CA</div>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">61%</span>
-                            <div class="stat-label">du CA</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="fournisseur-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 20px;">#</th>
-                                <th>Article</th>
-                                <th class="qty">Qty</th>
-                                <th class="prix">P.U.</th>
-                                <th class="ca">CA</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td class="rank">1</td>
-                                <td class="article-name">ANANAS AVION KG</td>
-                                <td class="qty">126.5</td>
-                                <td class="prix">4.40€</td>
-                                <td class="ca">557€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">2</td>
-                                <td class="article-name">TOMATE COEUR DE BOEUF ROUGE  KG</td>
-                                <td class="qty">111.9</td>
-                                <td class="prix">4.90€</td>
-                                <td class="ca">549€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">3</td>
-                                <td class="article-name">FRAMBOISE BQ   125 GR</td>
-                                <td class="qty">200.8</td>
-                                <td class="prix">2.20€</td>
-                                <td class="ca">442€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">4</td>
-                                <td class="article-name">TOMATE JAUNE ANANAS  KG</td>
-                                <td class="qty">73.1</td>
-                                <td class="prix">5.90€</td>
-                                <td class="ca">431€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">5</td>
-                                <td class="article-name">POIVRON ROUGE KG (MAROC)</td>
-                                <td class="qty">146.2</td>
-                                <td class="prix">2.90€</td>
-                                <td class="ca">424€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">6</td>
-                                <td class="article-name">TOMATE *CERISE* GRAPPE KG</td>
-                                <td class="qty">71.0</td>
-                                <td class="prix">5.90€</td>
-                                <td class="ca">419€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">7</td>
-                                <td class="article-name">PDT MITRAILLE 20/28</td>
-                                <td class="qty">95.0</td>
-                                <td class="prix">3.90€</td>
-                                <td class="ca">370€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">8</td>
-                                <td class="article-name">COURGETTE * JAUNE * KG</td>
-                                <td class="qty">80.9</td>
-                                <td class="prix">3.90€</td>
-                                <td class="ca">315€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">9</td>
-                                <td class="article-name">MYRTILLES BQ 125 GR</td>
-                                <td class="qty">119.0</td>
-                                <td class="prix">2.20€</td>
-                                <td class="ca">262€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">10</td>
-                                <td class="article-name">COURGETTE RONDE KG</td>
-                                <td class="qty">130.4</td>
-                                <td class="prix">1.90€</td>
-                                <td class="ca">248€</td>
-                            </tr>
-
-                            <tr class="total-row">
-                                <td colspan="3">TOTAL TOP 10</td>
-                                <td></td>
-                                <td class="ca">4017€</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="fournisseur-card">
-                <div class="fournisseur-header">
-                    <div class="fournisseur-nom">JOURDAN MARZE</div>
-                    <div class="fournisseur-stats">
-                        <div class="stat">
-                            <span class="stat-value">Top 10</span>
-                            <div class="stat-label">Articles</div>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">3664€</span>
-                            <div class="stat-label">Top 10 CA</div>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">83%</span>
-                            <div class="stat-label">du CA</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="fournisseur-body">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th style="width: 20px;">#</th>
-                                <th>Article</th>
-                                <th class="qty">Qty</th>
-                                <th class="prix">P.U.</th>
-                                <th class="ca">CA</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td class="rank">1</td>
-                                <td class="article-name">ROMAINE COEUR (BQ X 2 PIECES)</td>
-                                <td class="qty">339.0</td>
-                                <td class="prix">2.50€</td>
-                                <td class="ca">848€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">2</td>
-                                <td class="article-name">FRAISE GARIGUETTE BQ 250 G</td>
-                                <td class="qty">174.0</td>
-                                <td class="prix">3.90€</td>
-                                <td class="ca">679€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">3</td>
-                                <td class="article-name">MESCLUN</td>
-                                <td class="qty">82.0</td>
-                                <td class="prix">6.35€</td>
-                                <td class="ca">521€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">4</td>
-                                <td class="article-name">CITRON JAUNE BIO KG</td>
-                                <td class="qty">137.2</td>
-                                <td class="prix">2.80€</td>
-                                <td class="ca">384€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">5</td>
-                                <td class="article-name">OIGNON BLANC KG</td>
-                                <td class="qty">120.2</td>
-                                <td class="prix">2.30€</td>
-                                <td class="ca">277€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">6</td>
-                                <td class="article-name">POIVRON JAUNE KG</td>
-                                <td class="qty">85.1</td>
-                                <td class="prix">2.90€</td>
-                                <td class="ca">247€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">7</td>
-                                <td class="article-name">CITRON VERT CAT 1</td>
-                                <td class="qty">77.8</td>
-                                <td class="prix">2.90€</td>
-                                <td class="ca">226€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">8</td>
-                                <td class="article-name">ROQUETTE KG</td>
-                                <td class="qty">28.0</td>
-                                <td class="prix">6.30€</td>
-                                <td class="ca">176€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">9</td>
-                                <td class="article-name">CHAMPIGNON MORILLES SECHE POT 500G</td>
-                                <td class="qty">1.0</td>
-                                <td class="prix">165.00€</td>
-                                <td class="ca">165€</td>
-                            </tr>
-
-                            <tr>
-                                <td class="rank">10</td>
-                                <td class="article-name">TOMATE GREEN ZEBRA KG</td>
-                                <td class="qty">40.7</td>
-                                <td class="prix">3.50€</td>
-                                <td class="ca">142€</td>
-                            </tr>
-
-                            <tr class="total-row">
-                                <td colspan="3">TOTAL TOP 10</td>
-                                <td></td>
-                                <td class="ca">3664€</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</body>
-</html>
+<html lang="fr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rapport Fruits et Légumes S27</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Tahoma,sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);padding:30px 20px;min-height:100vh;}
+.container{max-width:1800px;margin:0 auto;}
+h1{color:#fff;text-align:center;margin-bottom:20px;font-size:2.2em;text-shadow:2px 2px 4px rgba(0,0,0,.3);}
+.date-info{color:#fff;text-align:center;margin-bottom:30px;font-size:1.3em;font-weight:600;background:rgba(0,0,0,.1);padding:15px;border-radius:8px;}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.card{background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.2);overflow:hidden;}
+.card-h{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:18px;text-align:center;}
+.card-h .nom{font-size:1.5em;font-weight:bold;}
+.card-h .stat{font-size:.9em;opacity:.9;margin-top:6px;}
+.card-b{padding:12px;max-height:720px;overflow-y:auto;}
+table{width:100%;border-collapse:collapse;font-size:.85em;}
+th{background:#f5f5f5;padding:6px 4px;text-align:left;border-bottom:2px solid #667eea;position:sticky;top:0;font-size:.8em;}
+td{padding:6px 4px;border-bottom:1px solid #eee;}
+.rank{text-align:center;font-weight:bold;color:#667eea;}
+.qty,.prix,.ca{text-align:right;}
+.ca{font-weight:600;color:#667eea;}
+.alt{color:#999;font-size:.82em;}
+.total{background:#f0f0f0;font-weight:bold;border-top:2px solid #667eea;}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){.grid{grid-template-columns:1fr;}}
+</style></head><body><div class="container">
+<h1>🥬 Conseil d'Achats Fruits & Légumes — Semaine 27</h1>
+<div class="date-info">(Mardi 30 juin - Lundi 6 juillet 2026)</div>
+<div class="grid">
+<div class="card"><div class="card-h">
+<div class="nom">BARBIE</div>
+<div class="stat">Top 10 · 2873€ · 88% du CA</div></div>
+<div class="card-b"><table><thead><tr>
+<th>#</th><th>Article</th><th class="qty">Qté</th><th class="prix">P.U.</th><th class="ca">CA</th></tr></thead><tbody>
+<tr><td class='rank'>1</td><td>MELON CHARENTAIS CAL 15 PIECE  FRANCE<div class='alt'>2e: COTE FRAIS 3.95€</div></td><td class='qty'>356.6</td><td class='prix'>3.80€</td><td class='ca'>1355€</td></tr>
+<tr><td class='rank'>2</td><td>MANGUE AVION MOYENNE KILOS<div class='alt'>2e: COTE FRAIS 7.85€</div></td><td class='qty'>53.5</td><td class='prix'>6.80€</td><td class='ca'>364€</td></tr>
+<tr><td class='rank'>3</td><td>PDT AMANDINE SAC 10KG<div class='alt'>2e: COTE FRAIS 1.88€</div></td><td class='qty'>180.0</td><td class='prix'>1.79€</td><td class='ca'>322€</td></tr>
+<tr><td class='rank'>4</td><td>CAROTTE<div class='alt'>2e: FRESSENON 1.30€</div></td><td class='qty'>167.1</td><td class='prix'>1.30€</td><td class='ca'>217€</td></tr>
+<tr><td class='rank'>5</td><td>TOMATE 3 VRAC<div class='alt'>2e: FRESSENON 2.40€</div></td><td class='qty'>66.9</td><td class='prix'>2.35€</td><td class='ca'>157€</td></tr>
+<tr><td class='rank'>6</td><td>TOMATE CERISE* BARQUETTE *<div class='alt'>2e: COTE FRAIS 2.45€</div></td><td class='qty'>81.0</td><td class='prix'>1.65€</td><td class='ca'>134€</td></tr>
+<tr><td class='rank'>7</td><td>PDT CRU EPLUCHEE 4EME GAMME<div class='alt'>2e: COTE FRAIS 1.95€</div></td><td class='qty'>100.0</td><td class='prix'>1.29€</td><td class='ca'>129€</td></tr>
+<tr><td class='rank'>8</td><td>PDT AGRIA LAVEES FILET NOIRE OU BLEU SPECIAL FRITES FR<div class='alt'>2e: FRESSENON 1.20€</div></td><td class='qty'>80.0</td><td class='prix'>0.99€</td><td class='ca'>79€</td></tr>
+<tr><td class='rank'>9</td><td>T.CERISE"MELI-MELO" COLIS VRAC<div class='alt'>2e: COTE FRAIS 7.85€</div></td><td class='qty'>8.3</td><td class='prix'>6.95€</td><td class='ca'>58€</td></tr>
+<tr><td class='rank'>10</td><td>CHAMPIGNON BLANC BOUTON<div class='alt'>2e: FRESSENON 6.90€</div></td><td class='qty'>12.0</td><td class='prix'>4.80€</td><td class='ca'>58€</td></tr>
+<tr class='total'><td colspan='4'>TOTAL TOP 10</td><td class='ca'>2873€</td></tr></tbody></table></div></div>
+<div class="card"><div class="card-h">
+<div class="nom">COTE FRAIS</div>
+<div class="stat">Top 10 · 2939€ · 77% du CA</div></div>
+<div class="card-b"><table><thead><tr>
+<th>#</th><th>Article</th><th class="qty">Qté</th><th class="prix">P.U.</th><th class="ca">CA</th></tr></thead><tbody>
+<tr><td class='rank'>1</td><td>AUBERGINE<div class='alt'>2e: BARBIE 2.50€</div></td><td class='qty'>320.1</td><td class='prix'>2.45€</td><td class='ca'>784€</td></tr>
+<tr><td class='rank'>2</td><td>MELANGE MULTIFEUILLE VRAC<div class='alt'>2e: BARBIE 7.50€</div></td><td class='qty'>73.0</td><td class='prix'>6.95€</td><td class='ca'>507€</td></tr>
+<tr><td class='rank'>3</td><td>PASTEQUE FASHION S/PEPIN KG<div class='alt'>2e: BARBIE 2.15€</div></td><td class='qty'>224.4</td><td class='prix'>1.95€</td><td class='ca'>438€</td></tr>
+<tr><td class='rank'>4</td><td>HARICOT VERT EQUEUTE GROSSE BQ 500GR</td><td class='qty'>78.0</td><td class='prix'>4.95€</td><td class='ca'>386€</td></tr>
+<tr><td class='rank'>5</td><td>CIBOULETTE BOTTE<div class='alt'>2e: FRESSENON 0.65€</div></td><td class='qty'>315.0</td><td class='prix'>0.65€</td><td class='ca'>205€</td></tr>
+<tr><td class='rank'>6</td><td>POIVRON VERT KG<div class='alt'>2e: FRESSENON 3.60€</div></td><td class='qty'>53.0</td><td class='prix'>2.95€</td><td class='ca'>156€</td></tr>
+<tr><td class='rank'>7</td><td>AVOCAT 14 C<div class='alt'>2e: FRESSENON 1.60€</div></td><td class='qty'>104.0</td><td class='prix'>1.48€</td><td class='ca'>154€</td></tr>
+<tr><td class='rank'>8</td><td>ECHALOTE *RONDE*<div class='alt'>2e: JOURDAN MARZE 2.50€</div></td><td class='qty'>45.0</td><td class='prix'>2.45€</td><td class='ca'>110€</td></tr>
+<tr><td class='rank'>9</td><td>KIWI 33 PCE<div class='alt'>2e: BARBIE 0.50€</div></td><td class='qty'>211.0</td><td class='prix'>0.48€</td><td class='ca'>101€</td></tr>
+<tr><td class='rank'>10</td><td>PDT GRENAILLE* SAC 10 KG *<div class='alt'>2e: BARBIE 1.95€</div></td><td class='qty'>50.0</td><td class='prix'>1.95€</td><td class='ca'>98€</td></tr>
+<tr class='total'><td colspan='4'>TOTAL TOP 10</td><td class='ca'>2939€</td></tr></tbody></table></div></div>
+<div class="card"><div class="card-h">
+<div class="nom">FRESSENON</div>
+<div class="stat">Top 10 · 3856€ · 61% du CA</div></div>
+<div class="card-b"><table><thead><tr>
+<th>#</th><th>Article</th><th class="qty">Qté</th><th class="prix">P.U.</th><th class="ca">CA</th></tr></thead><tbody>
+<tr><td class='rank'>1</td><td>ANANAS AVION KG<div class='alt'>2e: JOURDAN MARZE 4.90€</div></td><td class='qty'>134.7</td><td class='prix'>4.40€</td><td class='ca'>593€</td></tr>
+<tr><td class='rank'>2</td><td>TOMATE COEUR DE BOEUF ROUGE  KG<div class='alt'>2e: COTE FRAIS 5.95€</div></td><td class='qty'>119.9</td><td class='prix'>4.50€</td><td class='ca'>540€</td></tr>
+<tr><td class='rank'>3</td><td>FRAMBOISE BQ   125 GR<div class='alt'>2e: COTE FRAIS 2.45€</div></td><td class='qty'>227.8</td><td class='prix'>2.20€</td><td class='ca'>501€</td></tr>
+<tr><td class='rank'>4</td><td>PDT MITRAILLE 20/28</td><td class='qty'>125.0</td><td class='prix'>3.90€</td><td class='ca'>488€</td></tr>
+<tr><td class='rank'>5</td><td>TOMATE JAUNE ANANAS  KG<div class='alt'>2e: BARBIE 5.95€</div></td><td class='qty'>80.1</td><td class='prix'>4.90€</td><td class='ca'>392€</td></tr>
+<tr><td class='rank'>6</td><td>COURGETTE * JAUNE * KG<div class='alt'>2e: JOURDAN MARZE 4.50€</div></td><td class='qty'>83.4</td><td class='prix'>3.90€</td><td class='ca'>325€</td></tr>
+<tr><td class='rank'>7</td><td>HARICOT VERT EQUEUTE BQ 500GR<div class='alt'>2e: BARBIE 5.50€</div></td><td class='qty'>58.0</td><td class='prix'>4.95€</td><td class='ca'>287€</td></tr>
+<tr><td class='rank'>8</td><td>MYRTILLES BQ 125 GR<div class='alt'>2e: JOURDAN MARZE 2.90€</div></td><td class='qty'>125.0</td><td class='prix'>2.20€</td><td class='ca'>275€</td></tr>
+<tr><td class='rank'>9</td><td>PDT BINTJE MONA LISA</td><td class='qty'>300.0</td><td class='prix'>0.85€</td><td class='ca'>255€</td></tr>
+<tr><td class='rank'>10</td><td>MURES BQ<div class='alt'>2e: JOURDAN MARZE 2.90€</div></td><td class='qty'>69.0</td><td class='prix'>2.90€</td><td class='ca'>200€</td></tr>
+<tr class='total'><td colspan='4'>TOTAL TOP 10</td><td class='ca'>3856€</td></tr></tbody></table></div></div>
+<div class="card"><div class="card-h">
+<div class="nom">JOURDAN MARZE</div>
+<div class="stat">Top 10 · 4276€ · 83% du CA</div></div>
+<div class="card-b"><table><thead><tr>
+<th>#</th><th>Article</th><th class="qty">Qté</th><th class="prix">P.U.</th><th class="ca">CA</th></tr></thead><tbody>
+<tr><td class='rank'>1</td><td>ROMAINE COEUR (BQ X 2 PIECES)<div class='alt'>2e: COTE FRAIS 2.95€</div></td><td class='qty'>363.0</td><td class='prix'>2.50€</td><td class='ca'>908€</td></tr>
+<tr><td class='rank'>2</td><td>FRAISE FRANCE BQ 500 GR<div class='alt'>2e: BARBIE 4.95€</div></td><td class='qty'>178.0</td><td class='prix'>3.90€</td><td class='ca'>694€</td></tr>
+<tr><td class='rank'>3</td><td>POIVRON ROUGE KG (MAROC)<div class='alt'>2e: COTE FRAIS 2.95€</div></td><td class='qty'>172.7</td><td class='prix'>2.90€</td><td class='ca'>501€</td></tr>
+<tr><td class='rank'>4</td><td>MESCLUN<div class='alt'>2e: BARBIE 6.95€</div></td><td class='qty'>72.0</td><td class='prix'>6.35€</td><td class='ca'>457€</td></tr>
+<tr><td class='rank'>5</td><td>OIGNON BLANC KG<div class='alt'>2e: FRESSENON 2.90€</div></td><td class='qty'>180.3</td><td class='prix'>2.30€</td><td class='ca'>415€</td></tr>
+<tr><td class='rank'>6</td><td>CITRON JAUNE BIO KG<div class='alt'>2e: FRESSENON 3.40€</div></td><td class='qty'>147.4</td><td class='prix'>2.80€</td><td class='ca'>413€</td></tr>
+<tr><td class='rank'>7</td><td>POIVRON JAUNE KG<div class='alt'>2e: COTE FRAIS 2.95€</div></td><td class='qty'>105.3</td><td class='prix'>2.90€</td><td class='ca'>305€</td></tr>
+<tr><td class='rank'>8</td><td>CITRON VERT CAT 1<div class='alt'>2e: BARBIE 3.50€</div></td><td class='qty'>81.5</td><td class='prix'>2.90€</td><td class='ca'>236€</td></tr>
+<tr><td class='rank'>9</td><td>ROQUETTE KG<div class='alt'>2e: FRESSENON 6.90€</div></td><td class='qty'>29.0</td><td class='prix'>6.30€</td><td class='ca'>183€</td></tr>
+<tr><td class='rank'>10</td><td>CHAMPIGNON MORILLES SECHE POT 500G</td><td class='qty'>1.0</td><td class='prix'>165.00€</td><td class='ca'>165€</td></tr>
+<tr class='total'><td colspan='4'>TOTAL TOP 10</td><td class='ca'>4276€</td></tr></tbody></table></div></div>
+</div></div></body></html>
