@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang='fr'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Fruits &amp; Légumes Bocuse — Semaine 36</title><style>
+:root{--accent:#2f6f4f;--accent-d:#24583f;--ink:#1f2933;--muted:#6b7280;--bg:#f3f5f4;--line:#e6e9e7;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);}
+.topbar{background:linear-gradient(135deg,#24583f,#2f6f4f);color:#fff;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 2px 10px rgba(0,0,0,.12);}
+.topbar .brand{font-size:1.2rem;font-weight:700;letter-spacing:.3px;display:flex;align-items:center;gap:10px;}
+.topbar .brand .logo{background:#fff;color:var(--accent);border-radius:8px;padding:2px 10px;font-weight:800;}
+.topbar .right{display:flex;align-items:center;gap:16px;}
+.topbar .meta{text-align:right;font-size:.9rem;opacity:.95;line-height:1.3;}
+.topbar a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.55);padding:7px 14px;border-radius:20px;font-size:.85rem;white-space:nowrap;}
+.topbar a:hover{background:rgba(255,255,255,.16);}
+.wrap{max-width:1760px;margin:0 auto;padding:24px 28px 40px;}
+.page-title{font-size:1.5rem;font-weight:700;margin:6px 0 2px;}
+.page-sub{color:var(--muted);margin-bottom:20px;}
+.summary{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:26px;}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 20px;min-width:150px;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+.kpi .v{font-size:1.5rem;font-weight:700;color:var(--accent);}
+.kpi .l{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;}
+.card-h{background:var(--accent);color:#fff;padding:13px 16px;}
+.card-h .nom{font-size:1.12rem;font-weight:700;}
+.card-h .stat{font-size:.8rem;opacity:.92;margin-top:3px;}
+.card-b{padding:4px 10px 10px;max-height:700px;overflow-y:auto;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;}
+th{background:#f7faf8;color:#374151;text-align:left;padding:8px 6px;position:sticky;top:0;border-bottom:2px solid var(--accent);font-size:.7rem;text-transform:uppercase;letter-spacing:.3px;}
+td{padding:7px 6px;border-bottom:1px solid #f0f2f0;}
+tr:hover td{background:#fafcfb;}
+.rank{color:var(--accent);font-weight:700;text-align:center;width:24px;}
+.qty,.prix,.ca{text-align:right;white-space:nowrap;}
+.ca{font-weight:700;color:var(--accent);}
+.alt{color:#9aa3ab;font-size:.77rem;margin-top:1px;}
+.total td{border-top:2px solid var(--accent);border-bottom:none;background:#f7faf8;font-weight:700;}
+.foot{color:var(--muted);font-size:.8rem;text-align:center;margin-top:28px;}
+.hero{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-bottom:26px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+.hero .big{font-size:1rem;color:var(--muted);}
+.hero .wk{font-size:2rem;font-weight:800;color:var(--accent);margin-top:2px;}
+.btn{background:var(--accent);color:#fff;text-decoration:none;padding:13px 24px;border-radius:26px;font-weight:700;display:inline-block;}
+.btn:hover{background:var(--accent-d);}
+.section-t{font-size:1.05rem;font-weight:700;margin:4px 0 14px;color:#374151;}
+.hist{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;}
+.hist a{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-decoration:none;color:var(--ink);display:block;transition:.15s;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+.hist a:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 16px rgba(47,111,79,.16);}
+.hist .w{font-size:1.1rem;font-weight:700;color:var(--accent);}
+.hist .d{color:var(--muted);font-size:.85rem;margin-top:3px;}
+@media(max-width:1200px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:700px){.grid{grid-template-columns:1fr;}.topbar{flex-direction:column;text-align:center;}.topbar .meta{text-align:center;}}
+</style></head><body><div class='topbar'><div class='brand'><span class='logo'>B</span> Fruits &amp; Légumes · Maisons Bocuse</div><div class='right'><div class='meta'>Semaine 36<br>Mardi 1 septembre - Lundi 7 septembre 2026</div><a href='historique.html'>Historique →</a></div></div><div class='wrap'><div class='page-title'>Conseil d'achats — Fruits &amp; Légumes</div><div class='page-sub'>Semaine 36 · livraison Mardi 1 septembre - Lundi 7 septembre 2026</div><div class='summary'><div class='kpi'><div class='v'>133</div><div class='l'>Articles analysés</div></div><div class='kpi'><div class='v'>15 050 €</div><div class='l'>Volume d'achat</div></div><div class='kpi'><div class='v'>3</div><div class='l'>Fournisseurs conseillés</div></div></div><div class='grid'>
+<div class="card"><div class="card-h">
+<div class="nom">BARBIE</div>
+<div class="stat">Top 10 · 4073€ · 63% du CA</div></div>
+<div class="card-b"><table><thead><tr>
+<th>#</th><th>Article</th><th class="qty">Qté</th><th class="prix">P.U.</th><th class="ca">CA</th></tr></thead><tbody>
+<tr><td class='rank'>1</td><td>MELON CHARENTAIS CAL 15 PIECE  FRANCE<div class='alt'>2e: FRESSENON 2.90€</div></td><td class='qty'>200.6</td><td class='prix'>2.80€</td><td class='ca'>562€</td></tr>
+<tr><td class='rank'>2</td><td>MESCLUN<div class='alt'>2e: FRESSENON 8.90€</div></td><td class='qty'>68.0</td><td class='prix'>7.50€</td><td class='ca'>510€</td></tr>
+<tr><td class='rank'>3</td><td>AUBERGINE<div class='alt'>2e: FRESSENON 2.45€</div></td><td class='qty'>212.1</td><td class='prix'>2.30€</td><td class='ca'>488€</td></tr>
+<tr><td class='rank'>4</td><td>FRAMBOISE 125GR<div class='alt'>2e: FRESSENON 3.20€</div></td><td class='qty'>138.9</td><td class='prix'>3.20€</td><td class='ca'>444€</td></tr>
+<tr><td class='rank'>5</td><td>HARICOT VERT EQUEUTE GROSSE BQ 500GR<div class='alt'>2e: COTE FRAIS 4.95€</div></td><td class='qty'>89.5</td><td class='prix'>4.90€</td><td class='ca'>439€</td></tr>
+<tr><td class='rank'>6</td><td>TOMATE *CERISE* GRAPPE KG<div class='alt'>2e: FRESSENON 7.90€</div></td><td class='qty'>62.9</td><td class='prix'>6.95€</td><td class='ca'>437€</td></tr>
+<tr><td class='rank'>7</td><td>POIVRON ROUGE 5 KG<div class='alt'>2e: FRESSENON 3.60€</div></td><td class='qty'>118.1</td><td class='prix'>2.95€</td><td class='ca'>348€</td></tr>
+<tr><td class='rank'>8</td><td>CAROTTE<div class='alt'>2e: COTE FRAIS 1.48€</div></td><td class='qty'>230.1</td><td class='prix'>1.35€</td><td class='ca'>311€</td></tr>
+<tr><td class='rank'>9</td><td>POIVRON JAUNE KG<div class='alt'>2e: FRESSENON 3.60€</div></td><td class='qty'>91.4</td><td class='prix'>2.95€</td><td class='ca'>270€</td></tr>
+<tr><td class='rank'>10</td><td>ABRICOT AA FRANCE<div class='alt'>2e: FRESSENON 4.50€</div></td><td class='qty'>66.9</td><td class='prix'>3.95€</td><td class='ca'>264€</td></tr>
+<tr class='total'><td colspan='4'>TOTAL TOP 10</td><td class='ca'>4073€</td></tr></tbody></table></div></div>
+<div class="card"><div class="card-h">
+<div class="nom">COTE FRAIS</div>
+<div class="stat">Top 10 · 1586€ · 75% du CA</div></div>
+<div class="card-b"><table><thead><tr>
+<th>#</th><th>Article</th><th class="qty">Qté</th><th class="prix">P.U.</th><th class="ca">CA</th></tr></thead><tbody>
+<tr><td class='rank'>1</td><td>FRAISE FRANCE BQ 500 GR<div class='alt'>2e: BARBIE 6.50€</div></td><td class='qty'>120.8</td><td class='prix'>4.95€</td><td class='ca'>598€</td></tr>
+<tr><td class='rank'>2</td><td>CIBOULETTE BOTTE<div class='alt'>2e: FRESSENON 0.65€</div></td><td class='qty'>314.0</td><td class='prix'>0.65€</td><td class='ca'>204€</td></tr>
+<tr><td class='rank'>3</td><td>PDT GRENAILLE* SAC 10 KG *<div class='alt'>2e: BARBIE 1.95€</div></td><td class='qty'>65.0</td><td class='prix'>1.95€</td><td class='ca'>127€</td></tr>
+<tr><td class='rank'>4</td><td>KIWI 33 PCE<div class='alt'>2e: BARBIE 0.48€</div></td><td class='qty'>244.0</td><td class='prix'>0.48€</td><td class='ca'>117€</td></tr>
+<tr><td class='rank'>5</td><td>ECHALOTE *RONDE*<div class='alt'>2e: FRESSENON 3.60€</div></td><td class='qty'>40.0</td><td class='prix'>2.88€</td><td class='ca'>115€</td></tr>
+<tr><td class='rank'>6</td><td>POMME PINK LADY CARTE PLT KG (215G-270G)<div class='alt'>2e: BARBIE 2.80€</div></td><td class='qty'>46.4</td><td class='prix'>2.45€</td><td class='ca'>114€</td></tr>
+<tr><td class='rank'>7</td><td>AVOCAT HASS 22/24 C<div class='alt'>2e: BARBIE 1.35€</div></td><td class='qty'>75.0</td><td class='prix'>1.18€</td><td class='ca'>88€</td></tr>
+<tr><td class='rank'>8</td><td>ANETH BOTTE<div class='alt'>2e: FRESSENON 0.65€</div></td><td class='qty'>115.0</td><td class='prix'>0.65€</td><td class='ca'>75€</td></tr>
+<tr><td class='rank'>9</td><td>CHOU KALE</td><td class='qty'>8.4</td><td class='prix'>8.85€</td><td class='ca'>74€</td></tr>
+<tr><td class='rank'>10</td><td>PERSIL FRISE BOTTE<div class='alt'>2e: BARBIE 0.68€</div></td><td class='qty'>114.0</td><td class='prix'>0.65€</td><td class='ca'>74€</td></tr>
+<tr class='total'><td colspan='4'>TOTAL TOP 10</td><td class='ca'>1586€</td></tr></tbody></table></div></div>
+<div class="card"><div class="card-h">
+<div class="nom">FRESSENON</div>
+<div class="stat">Top 10 · 3460€ · 53% du CA</div></div>
+<div class="card-b"><table><thead><tr>
+<th>#</th><th>Article</th><th class="qty">Qté</th><th class="prix">P.U.</th><th class="ca">CA</th></tr></thead><tbody>
+<tr><td class='rank'>1</td><td>ROMAINE COEUR  (BQ X 2 PIECES)<div class='alt'>2e: BARBIE 3.80€</div></td><td class='qty'>165.0</td><td class='prix'>3.60€</td><td class='ca'>594€</td></tr>
+<tr><td class='rank'>2</td><td>PDT MITRAILLE 20/28</td><td class='qty'>145.0</td><td class='prix'>3.90€</td><td class='ca'>566€</td></tr>
+<tr><td class='rank'>3</td><td>PDT AGRIA LAVEES FILET NOIRE OU BLEU SPECIAL FRITES FR<div class='alt'>2e: BARBIE 1.45€</div></td><td class='qty'>374.9</td><td class='prix'>1.20€</td><td class='ca'>450€</td></tr>
+<tr><td class='rank'>4</td><td>ANANAS AVION KG<div class='alt'>2e: COTE FRAIS 5.85€</div></td><td class='qty'>74.8</td><td class='prix'>4.60€</td><td class='ca'>344€</td></tr>
+<tr><td class='rank'>5</td><td>POUSSE EPINARD KG<div class='alt'>2e: BARBIE 7.95€</div></td><td class='qty'>41.0</td><td class='prix'>6.90€</td><td class='ca'>283€</td></tr>
+<tr><td class='rank'>6</td><td>COURGETTE 14/21 5KG C1 ESP<div class='alt'>2e: BARBIE 2.50€</div></td><td class='qty'>122.0</td><td class='prix'>2.30€</td><td class='ca'>281€</td></tr>
+<tr><td class='rank'>7</td><td>TOMATE COEUR DE BOEUF ROUGE KG REGION<div class='alt'>2e: COTE FRAIS 6.95€</div></td><td class='qty'>46.6</td><td class='prix'>5.50€</td><td class='ca'>256€</td></tr>
+<tr><td class='rank'>8</td><td>OIGNON AUXONNE JAUNE KG<div class='alt'>2e: COTE FRAIS 0.95€</div></td><td class='qty'>285.0</td><td class='prix'>0.85€</td><td class='ca'>242€</td></tr>
+<tr><td class='rank'>9</td><td>TOMATE GRAPPE<div class='alt'>2e: BARBIE 3.95€</div></td><td class='qty'>57.2</td><td class='prix'>3.90€</td><td class='ca'>223€</td></tr>
+<tr><td class='rank'>10</td><td>OIGNON BLANC KG<div class='alt'>2e: BARBIE 2.65€</div></td><td class='qty'>85.0</td><td class='prix'>2.60€</td><td class='ca'>221€</td></tr>
+<tr class='total'><td colspan='4'>TOTAL TOP 10</td><td class='ca'>3460€</td></tr></tbody></table></div></div>
+</div><div class='foot'>Généré automatiquement le 01/09/2026 à 13:12 · Maisons Bocuse — Service Achats</div></div></body></html>
